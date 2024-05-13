@@ -22,6 +22,7 @@ COPY private_key.pem /
 
 COPY docker-entrypoint.sh /docker-entrypoint.d/
 RUN chmod 777 /docker-entrypoint.d/docker-entrypoint.sh
+COPY cloudflare.crt /
 
 EXPOSE 443
 EXPOSE 30120
