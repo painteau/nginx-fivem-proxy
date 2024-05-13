@@ -23,5 +23,5 @@ COPY private_key.pem /
 COPY docker-entrypoint.sh /docker-entrypoint.d/
 RUN chmod 777 /docker-entrypoint.d/docker-entrypoint.sh
 
-EXPOSE 443
+EXPOSE 80
 EXPOSE 30120
