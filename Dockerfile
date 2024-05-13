@@ -1,9 +1,9 @@
 FROM nginx:mainline-alpine-slim
 
-ENV FIVEM_SERVER_IP 1.1.1.1
-ENV FIVEM_SERVER_PORT 666
-ENV FIVEM_PROXY_DOMAIN my.domain.com 
-ENV FIVEM_PROXY_PORT 667
+ENV FIVEM_SERVER_IP=1.1.1.1
+ENV FIVEM_SERVER_PORT=666
+ENV FIVEM_PROXY_DOMAIN=my.domain.com 
+ENV FIVEM_PROXY_PORT=667
 
 # backup original nginx.conf file
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak 
