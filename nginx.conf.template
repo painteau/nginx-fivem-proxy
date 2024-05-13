@@ -29,15 +29,18 @@ http {
     proxy_cache_path /srv/cache levels=1:2 keys_zone=assets:48m max_size=20g inactive=2h;
 
     server {
-        listen 443 ssl;
-        listen [::]:443 ssl;
+        listen 443;
+        listen [::]:443 ;
         http2  on;
+        ssl on;
 
         server_name FIVEM_PROXY_DOMAIN;
 
         # Your SSL cerificate this can also be a Cloudflare origin certificate if you're using CF
         ssl_certificate /certificate.pem;
         ssl_certificate_key /private_key.pem;
+        ssl_verify_client on;
+        ssl_client_certificate /etc/ssl/certs/cloudflare.crt;
 
         location / {
             root    /var/www/;    
