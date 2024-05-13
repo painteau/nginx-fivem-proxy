@@ -39,10 +39,8 @@ http {
         error_log /var/log/nginx/reverse-error.log;
 
         # Your SSL cerificate this can also be a Cloudflare origin certificate if you're using CF
-        ssl_certificate /certificate.pem;
+        ssl_certificate /combine.pem;
         ssl_certificate_key /private_key.pem;
-        ssl_verify_client on;
-        ssl_client_certificate /cloudflare.crt;
 
         location / {
             root    /var/www/;    
