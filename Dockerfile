@@ -18,4 +18,4 @@ COPY private_key.pem /
 RUN envsubst '${FIVEM_SERVER_IP} ${FIVEM_SERVER_PORT} ${FIVEM_PROXY_DOMAIN} ${FIVEM_PROXY_PORT}' < /nginx.conf.template > /etc/nginx/nginx.conf
 
 EXPOSE 443
-EXPOSE {$FIVEM_PROXY_PORT}
+EXPOSE $FIVEM_PROXY_PORT
