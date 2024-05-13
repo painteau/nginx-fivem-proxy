@@ -20,10 +20,8 @@ COPY private_key.pem /
 # RUN sed -i "s/FIVEM_PROXY_DOMAIN/${FIVEM_PROXY_DOMAIN}/g" /etc/nginx/nginx.conf
 # RUN sed -i "s/FIVEM_PROXY_PORT/${FIVEM_PROXY_PORT}/g" /etc/nginx/nginx.conf
 
-COPY docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
-RUN chmod 777 /docker-entrypoint.sh
-CMD ["nginx", "-g", "daemon off;"]
+COPY docker-entrypoint.sh /docker-entrypoint.d/
+RUN chmod 777 /docker-entrypoint.d/docker-entrypoint.sh
 
 EXPOSE 443
 EXPOSE 30120
