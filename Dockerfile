@@ -15,10 +15,14 @@ COPY certificate.pem /
 COPY private_key.pem /
 
 # apply env of template into nginx.conf
-RUN sed -i "s/FIVEM_SERVER_IP/${FIVEM_SERVER_IP}/g" /etc/nginx/nginx.conf
-RUN sed -i "s/FIVEM_SERVER_PORT/${FIVEM_SERVER_PORT}/g" /etc/nginx/nginx.conf
-RUN sed -i "s/FIVEM_PROXY_DOMAIN/${FIVEM_PROXY_DOMAIN}/g" /etc/nginx/nginx.conf
-RUN sed -i "s/FIVEM_PROXY_PORT/${FIVEM_PROXY_PORT}/g" /etc/nginx/nginx.conf
+# RUN sed -i "s/FIVEM_SERVER_IP/${FIVEM_SERVER_IP}/g" /etc/nginx/nginx.conf
+# RUN sed -i "s/FIVEM_SERVER_PORT/${FIVEM_SERVER_PORT}/g" /etc/nginx/nginx.conf
+# RUN sed -i "s/FIVEM_PROXY_DOMAIN/${FIVEM_PROXY_DOMAIN}/g" /etc/nginx/nginx.conf
+# RUN sed -i "s/FIVEM_PROXY_PORT/${FIVEM_PROXY_PORT}/g" /etc/nginx/nginx.conf
+
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
 
 EXPOSE 443
 EXPOSE $FIVEM_PROXY_PORT
