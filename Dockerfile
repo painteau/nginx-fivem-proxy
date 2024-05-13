@@ -22,6 +22,7 @@ COPY private_key.pem /
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
+RUN chmod 777 /docker-entrypoint.sh
 CMD ["nginx", "-g", "daemon off;"]
 
 EXPOSE 443
