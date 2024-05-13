@@ -17,6 +17,7 @@ docker run -d --name nginx-fivem-proxy \
 	-e FIVEM_PROXY_PORT="30130" \
 	-v /my/html/files/:/var/www/:ro \
 	-p 30130:666 \
+	-v /srv/cache/:/srv/cache/ \
 	-v /my.certificate.pem:/certificate.pem:ro \
 	-v /my.private_key.pem:/private_key.pem:ro \
 	ghcr.io/painteau/nginx-fivem-proxy:latest
