@@ -44,7 +44,7 @@ http {
         # ssl_certificate_key /private_key.pem;
 
         location / {
-            root    /var/www/;    
+            root    /var/www/html/;    
         }
 
         location /client {
