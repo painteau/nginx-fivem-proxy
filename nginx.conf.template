@@ -21,27 +21,24 @@ stream {
 }
 
 http {
-
     upstream backend {
         server FIVEM_PROXY_DOMAIN:FIVEM_PROXY_PORT;
     }
 
-    # proxy_cache_path /srv/cache levels=1:2 keys_zone=assets:48m max_size=20g inactive=2h;
-
-    server {
-        # listen 443 ssl;
-        # listen [::]:443 ssl;
-        # http2  on;
-        # listen 80;
+     server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        http2  on;
+        listen 80;
 
         server_name FIVEM_PROXY_DOMAIN;
 
         access_log /var/log/nginx/reverse-access.log;
         error_log /var/log/nginx/reverse-error.log;
 
-        # Your SSL cerificate this can also be a Cloudflare origin certificate if you're using CF
-        # ssl_certificate /combine.pem;
-        # ssl_certificate_key /private_key.pem;
+        # Your SSL cerificate. This can also be a Cloudflare origin certificate if you're using CF
+        ssl_certificate /certificate.pem;
+        ssl_certificate_key /private_key.pem;
 
         location / {
             root    /var/www/html/;    
