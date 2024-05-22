@@ -6,7 +6,7 @@ You can do a simple mount to simply serve files from your local
 file system with nginx.  Make sure to map the directory you want to serve from with the
 `-v` command
 
-Also, don't forget to map your certificate.
+Also, don't forget to map your certificate. I gave a dumb certificate and a private key JUST FOR THE EXEMPLE. DON'T USE THEM
 
 ```bash
 docker run -d --name nginx-fivem-proxy \
