@@ -36,8 +36,8 @@ http {
         access_log /var/log/nginx/reverse-access.log;
         error_log /var/log/nginx/reverse-error.log;
 
-        # Your SSL cerificate. This can also be a Cloudflare origin certificate if you're using CF
-        ssl_certificate /certificate.pem;
+        # Your SSL certificate. This can also be a Cloudflare origin certificate if you're using CF. Your certificate must be /certificate.pem, the docker entry script will combine it with the latest cloudflare pem
+        ssl_certificate /combine.pem;
         ssl_certificate_key /private_key.pem;
 
         location / {
