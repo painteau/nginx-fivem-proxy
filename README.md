@@ -15,15 +15,22 @@
 - SSL/TLS certificates for secure connections.
 - Docker installed on your server.
 
-## 🛠 Setup & Installation
+## 🔨 Running nginx-fivem-proxy Locally
 
-1️⃣ **Pull the Docker Image:**
+To build and test the container locally:
 
 ```bash
-docker pull ghcr.io/painteau/nginx-fivem-proxy:latest
+docker build -t nginx-fivem-proxy .
+docker run -d --name nginx-fivem-proxy \
+    -e FIVEM_SERVER_IP="127.0.0.1" \
+    -e FIVEM_SERVER_PORT="30120" \
+    -p 30130:30120 \
+    nginx-fivem-proxy
 ```
 
-2️⃣ **Run the Container:**
+## 🐳 Running with Docker (GHCR)
+
+`nginx-fivem-proxy` is available on GitHub Container Registry (GHCR):
 
 ```bash
 docker run -d --name nginx-fivem-proxy \
@@ -43,41 +50,17 @@ docker run -d --name nginx-fivem-proxy \
     ghcr.io/painteau/nginx-fivem-proxy:latest
 ```
 
-## 🔨 Running nginx-fivem-proxy Locally
-
-To test the container locally:
-
-```bash
-docker run -d --name nginx-fivem-proxy \
-    -e FIVEM_SERVER_IP="127.0.0.1" \
-    -e FIVEM_SERVER_PORT="30120" \
-    -p 30130:30120 \
-    ghcr.io/painteau/nginx-fivem-proxy:latest
-```
-
-## 🐳 Running with Docker (GHCR)
-
-`nginx-fivem-proxy` is available on GitHub Container Registry (GHCR):
-
-1️⃣ **Pull the Docker Image:**
-
-```bash
-docker pull ghcr.io/painteau/nginx-fivem-proxy:latest
-```
-
-2️⃣ **Run the Container:** *(See installation steps above)*
-
 ## ⚙ Configuration
 
-| Environment Variable   | Description                                      | Default Value |
-|------------------------|--------------------------------------------------|---------------|
-| `FIVEM_SERVER_IP`     | The IP address of your FiveM server             | `127.0.0.1`   |
-| `FIVEM_SERVER_PORT`   | The port your FiveM server is running on        | `30120`       |
-| `FIVEM_PROXY_DOMAIN`  | The domain name used to access the proxy        | `my.domain.com` |
-| `FIVEM_PROXY_PORT`    | The external port for the proxy                 | `30130`       |
-| `CACHE_DIR`           | Cache directory location                        | `/srv/cache/` |
-| `SSL_CERT`            | Path to SSL certificate                         | `/certificate.pem` |
-| `SSL_KEY`             | Path to SSL private key                         | `/private_key.pem` |
+| Environment Variable | Description                              | Default Value      |
+| -------------------- | ---------------------------------------- | ------------------ |
+| `FIVEM_SERVER_IP`    | The IP address of your FiveM server      | `127.0.0.1`        |
+| `FIVEM_SERVER_PORT`  | The port your FiveM server is running on | `30120`            |
+| `FIVEM_PROXY_DOMAIN` | The domain name used to access the proxy | `my.domain.com`    |
+| `FIVEM_PROXY_PORT`   | The external port for the proxy          | `30130`            |
+| `CACHE_DIR`          | Cache directory location                 | `/srv/cache/`      |
+| `SSL_CERT`           | Path to SSL certificate                  | `/certificate.pem` |
+| `SSL_KEY`            | Path to SSL private key                  | `/private_key.pem` |
 
 ## 🔧 Troubleshooting
 
@@ -97,7 +80,7 @@ This project is licensed under the MIT License.
 ## 💡 Contributing
 
 1️⃣ **Fork the repository on GitHub:** [https://github.com/painteau/nginx-fivem-proxy](https://github.com/painteau/nginx-fivem-proxy)
-2️⃣ **Create a new branch (`feature-branch`)**
+2️⃣ **Create a new branch (********`feature-branch`********\*\*\*\*\*\*\*\*)**
 3️⃣ **Commit your changes**
 4️⃣ **Push to your branch and create a pull request**
 
