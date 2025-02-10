@@ -80,7 +80,7 @@ This project is licensed under the MIT License.
 ## 💡 Contributing
 
 1️⃣ **Fork the repository on GitHub:** [https://github.com/painteau/nginx-fivem-proxy](https://github.com/painteau/nginx-fivem-proxy)
-2️⃣ **Create a new branch (********`feature-branch`********\*\*\*\*\*\*\*\*)**
+2️⃣ **Create a new branch (`feature-branch`)**
 3️⃣ **Commit your changes**
 4️⃣ **Push to your branch and create a pull request**
 
